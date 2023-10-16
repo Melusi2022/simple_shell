@@ -6,7 +6,7 @@
 *
 * Return: 0 on success, 1 on failure
 */
-void cd(char *path)
+int cd(char *path)
 {
 	char *home = _getenv("HOME");
 	char *oldpwd = _getenv("OLDPWD");
@@ -17,20 +17,18 @@ void cd(char *path)
 	{
 		if (chdir(home) == -1)
 		{
-			perror("cd");
-			return;
+			return (1);
 		}
 		setenv("OLDPWD", pwd, 1);
 		setenv("pwd", home, 1);
-}
+	}
 	else if (_strcmp(path, "-") == 0)
 	{
 		if (oldpwd != NULL)
 		{
 			if (chdir(oldpwd) == -1)
 			{
-				perror("cd");
-				return;
+				return (1);
 			}
 			setenv("OLDPWD", pwd, 1);
 			setenv("pwd", oldpwd, 1);
@@ -40,11 +38,11 @@ void cd(char *path)
 	{
 		if (chdir(path) == -1)
 		{
-			perror("cd");
-			return;
+			return (1);
 		}
 		getcwd(cwd, sizeof(cwd));
 		setenv("OLDPWD", pwd, 1);
 		setenv("PWD", cwd, 1);
 	}
+	return (0);
 }

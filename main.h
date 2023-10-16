@@ -46,7 +46,7 @@ int num_args(char *argv[]);
 void _exec(char **_argum, char *av, int count);
 int _1exit(char *status __attribute__((unused)), int c, char *a, char **ag);
 int _atoi(const char *str);
-void cd(char *path);
+int cd(char *path);
 int process_command(char **argv);
 
 /**
