@@ -23,6 +23,7 @@ int process_command(char **argv)
 		_env();
 		return (0);
 	}
+
 	if (_strcmp(argv[0], "setenv") == 0)
 	{
 		if (num_arg == 3)
@@ -30,13 +31,23 @@ int process_command(char **argv)
 			_setenv(argv[1], argv[2]);
 			return (0);
 		}
+		else
+		{
+			_print("Usage: setenv VARNAM VALUE\n");
+			return (1);
+		}
 	}
 	if (_strcmp(argv[0], "unsetenv") == 0)
 	{
 		if (num_arg == 2)
 		{
 			_unsetenv(argv[1]);
-			return (0);
+				return (0);
+		}
+		else
+		{
+			_print("Usage:unsetenv VARNAME\n");
+			return (1);
 		}
 	}
 /*
