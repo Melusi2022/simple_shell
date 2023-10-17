@@ -48,7 +48,7 @@ int alias_command(char *argv[MAX_ARGS], int num_arg __attribute__((unused)))
 		value = _strchr(argv[i], '=');
 		if (value)
 		{
-			*value = '\0';/*replaces '=' by '\0'*/
+			*value = '\0';
 			value++;
 			if (*value == '\0')
 				continue;
@@ -61,7 +61,6 @@ int alias_command(char *argv[MAX_ARGS], int num_arg __attribute__((unused)))
 	}
 	return (1);
 }
-
 
 /**
  * set_alias - sets an alias
