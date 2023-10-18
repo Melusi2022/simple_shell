@@ -48,6 +48,10 @@ int _1exit(char *status __attribute__((unused)), int c, char *a, char **ag);
 int _atoi(const char *str);
 int cd(char *path);
 int process_command(char **argv);
+int process_unsetenv(char **argv, int num_arg);
+int process_setenv(char **argv, int num_arg);
+int process_env(void);
+int process_cd(char **argv, int num_arg);
 
 /**
 * struct Node - singly linked list
